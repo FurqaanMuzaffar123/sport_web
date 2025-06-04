@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sport Accessories Store - Home</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+
+      .header {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 15px 0;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .user-info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .welcome-text {
+        color: #555;
+        font-weight: 500;
+      }
+
+      .logout-btn {
+        background: #e74c3c;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: background 0.3s ease;
+      }
+
+      .logout-btn:hover {
+        background: #c0392b;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .welcome-section {
+        background: white;
+        border-radius: 15px;
+        padding: 40px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .welcome-section h1 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 2.5em;
+      }
+
+      .welcome-section p {
+        color: #666;
+        font-size: 1.2em;
+        line-height: 1.6;
+      }
+
+      .dashboard {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .profile-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .profile-card h2 {
+        color: #333;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #667eea;
+        padding-bottom: 10px;
+      }
+
+      .profile-info {
+        display: grid;
+        gap: 15px;
+      }
+
+      .info-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .info-label {
+        font-weight: 600;
+        color: #555;
+      }
+
+      .info-value {
+        color: #333;
+      }
+
+      .accessories-section {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .accessories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .accessory-card {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .accessory-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        border-color: #667eea;
+      }
+
+      .accessory-icon {
+        font-size: 3em;
+        margin-bottom: 15px;
+      }
+
+      .accessory-name {
+        font-size: 1.2em;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .accessory-price {
+        font-size: 1.1em;
+        color: #667eea;
+        font-weight: bold;
+      }
+
+      .search-section {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+
+      .search-box {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+
+      .search-input {
+        flex: 1;
+        padding: 15px;
+        border: 2px solid #e1e5e9;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+
+      .search-input:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .search-btn {
+        background: #667eea;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.3s ease;
+      }
+
+      .search-btn:hover {
+        background: #5a67d8;
+      }
+
+      @media (max-width: 768px) {
+        .dashboard {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .user-info {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="logo">🏃‍♂️ SportGear Store</div>
+        <div class="user-info">
+          <span class="welcome-text">Welcome, <%= username %>!</span>
+          <form action="/logout" method="GET" style="margin: 0">
+            <button type="submit" class="logout-btn">Logout</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="welcome-section">
+        <h1>Welcome to SportGear Store!</h1>
+        <p>
+          Discover the best sport accessories for your active lifestyle. From
+          fitness equipment to outdoor gear, we have everything you need to stay
+          active and healthy.
+        </p>
+      </div>
+
+      <div class="search-section">
+        <h2>🔍 Search Sport Accessories</h2>
+        <div class="search-box">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search for sport accessories..."
+            id="searchInput"
+          />
+          <button class="search-btn" onclick="searchAccessories()">
+            Search
+          </button>
+        </div>
+        <div id="searchResults"></div>
+      </div>
+
+      <div class="dashboard">
+        <div class="profile-card">
+          <h2>👤 Your Profile</h2>
+          <div class="profile-info">
+            <div class="info-item">
+              <span class="info-label">User ID:</span>
+              <span class="info-value"><%= userid %></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Name:</span>
+              <span class="info-value"><%= username %></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Email:</span>
+              <span class="info-value"><%= email %></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Phone:</span>
+              <span class="info-value"><%= phoneNumber %></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Gender:</span>
+              <span class="info-value"><%= gender %></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Age:</span>
+              <span class="info-value"><%= age %></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Items Purchased:</span>
+              <span class="info-value">3</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Total Spent:</span>
+              <span class="info-value">$3M</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="accessories-section">
+          <h2>🏅 Featured Sport Accessories</h2>
+          <div class="accessories-grid">
+            <div class="accessory-card">
+              <div class="accessory-icon">🏃‍♂️</div>
+              <div class="accessory-name">Running Shoes</div>
+              <div class="accessory-price">$89.99</div>
+            </div>
+            <div class="accessory-card">
+              <div class="accessory-icon">🏋️‍♀️</div>
+              <div class="accessory-name">Dumbbells Set</div>
+              <div class="accessory-price">$159.99</div>
+            </div>
+            <div class="accessory-card">
+              <div class="accessory-icon">🏀</div>
+              <div class="accessory-name">Basketball</div>
+              <div class="accessory-price">$29.99</div>
+            </div>
+            <div class="accessory-card">
+              <div class="accessory-icon">🏓</div>
+              <div class="accessory-name">Tennis Racket</div>
+              <div class="accessory-price">$79.99</div>
+            </div>
+            <div class="accessory-card">
+              <div class="accessory-icon">🚴‍♂️</div>
+              <div class="accessory-name">Cycling Helmet</div>
+              <div class="accessory-price">$49.99</div>
+            </div>
+            <div class="accessory-card">
+              <div class="accessory-icon">🏊‍♀️</div>
+              <div class="accessory-name">Swimming Goggles</div>
+              <div class="accessory-price">$19.99</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const accessories = [
+        {
+          name: "Running Shoes",
+          price: 89.99,
+          icon: "🏃‍♂️",
+          category: "running",
+        },
+        {
+          name: "Dumbbells Set",
+          price: 159.99,
+          icon: "🏋️‍♀️",
+          category: "fitness",
+        },
+        {
+          name: "Basketball",
+          price: 29.99,
+          icon: "🏀",
+          category: "basketball",
+        },
+        { name: "Tennis Racket", price: 79.99, icon: "🏓", category: "tennis" },
+        {
+          name: "Cycling Helmet",
+          price: 49.99,
+          icon: "🚴‍♂️",
+          category: "cycling",
+        },
+        {
+          name: "Swimming Goggles",
+          price: 19.99,
+          icon: "🏊‍♀️",
+          category: "swimming",
+        },
+        { name: "Yoga Mat", price: 39.99, icon: "🧘‍♀️", category: "yoga" },
+        { name: "Soccer Ball", price: 34.99, icon: "⚽", category: "soccer" },
+        { name: "Boxing Gloves", price: 69.99, icon: "🥊", category: "boxing" },
+        { name: "Jump Rope", price: 14.99, icon: "🏃‍♀️", category: "fitness" },
+      ];
+
+      function searchAccessories() {
+        const query = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const resultsContainer = document.getElementById("searchResults");
+
+        if (!query.trim()) {
+          resultsContainer.innerHTML = "";
+          return;
+        }
+
+        const filteredAccessories = accessories.filter(
+          (item) =>
+            item.name.toLowerCase().includes(query) ||
+            item.category.toLowerCase().includes(query)
+        );
+
+        if (filteredAccessories.length === 0) {
+          resultsContainer.innerHTML =
+            '<p style="text-align: center; color: #666; margin-top: 20px;">No accessories found matching your search.</p>';
+          return;
+        }
+
+        const resultHTML = filteredAccessories
+          .map((item) => (
+            <div
+              className="accessory-card"
+              style="display: inline-block; margin: 10px;"
+            >
+              <div className="accessory-icon">${item.icon}</div>
+              <div className="accessory-name">${item.name}</div>
+              <div className="accessory-price">$${item.price}</div>
+            </div>
+          ))
+          .join("");
+
+        resultsContainer.innerHTML = `<h3 style="margin: 20px 0 10px 0;">Search Results:</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    ${resultHTML}
+                </div>`;
+      }
+
+      // Add enter key support for search
+      document
+        .getElementById("searchInput")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            searchAccessories();
+          }
+        });
+    </script>
+  </body>
+</html>
