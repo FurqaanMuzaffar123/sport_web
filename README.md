@@ -82,4 +82,3 @@ Open your browser and go to: [http://localhost:3000](http://localhost:3000)
 
 ### Voila! You have your website ready to go!
 ---
-# sport_web
